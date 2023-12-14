@@ -1,20 +1,26 @@
-import Card from "../Card/Card"
-import './SectionArticles.css';
+import React, { useEffect } from "react"
+import BoutiqueContext from "../../BoutiqueContext"
+import CardItem from "../CardItem/CardItem"
+import { Text, View } from "react-native"
+
+
 const SectionArticles = (props)=>{
+    const boutiqueContext = React.useContext(BoutiqueContext)
+    useEffect(()=>{
+        console.dir(boutiqueContext);
+    },[])
+    
     return(
-        <section>
-            <h1>Mes fabuleux articles : </h1>
-            {/* emplacement de mes cards articles */}
-            <div className="sectionArticles">
-                {
-                    props.articlesProp.map((value,index)=>{
-                        return(
-                            <Card articleProp={value} key={index}></Card>
-                        )
-                    })
-                }
-            </div>
-        </section>
+        <View>
+            <Text>Mes fabuleux articles : </Text>
+            {
+                boutiqueContext.articlesApp.map((value,index)=>{
+                    return(
+                        <CardItem key={index} id={value.id}>{value.id}</CardItem>
+                    )
+                })
+            }
+        </View>
     )
 }
 export default SectionArticles

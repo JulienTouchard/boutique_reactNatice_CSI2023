@@ -8,6 +8,7 @@ import {
 import Header from './components/Header/Header';
 import articles from './articles';
 import BoutiqueContext from './BoutiqueContext';
+import SectionArticles from './components/SectionArticles/SectionArticles';
 const App = () => {
   const [state,setState] = React.useState({
     articlesApp: articles,
@@ -67,7 +68,7 @@ const App = () => {
       <SafeAreaView>
         <ScrollView>
           <Header></Header>
-          <Text style={styles.exempleText}>Hello world!</Text>
+          <SectionArticles></SectionArticles>
         </ScrollView>
       </SafeAreaView>
     </BoutiqueContext.Provider>
